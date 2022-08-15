@@ -3,7 +3,7 @@
 <h2>Last Name: {{ lastName }}</h2>
 <h2>Full Name: {{ fullName }}</h2>
 <h2>
-  Total: {{ items.reduce ((total, curr) => (total = total + curr.price ), 0)}}
+  Total: {{ total }}
 </h2>
 </template>
 
@@ -32,6 +32,10 @@
     computed: {
       fullName(){
         return `${this.firstName}${this.lastName}`
+      }, 
+      total(){
+        return this.items.reduce ((total, curr) => (total = total + curr.price ), 0)
+        // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
       }
     }
   }
